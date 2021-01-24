@@ -1,6 +1,5 @@
-import java.util.concurrent.ThreadLocalRandom;
-
 public class mage extends creature {
+	
 	static enemy enemies = new enemy();
 	public mage() {
 
@@ -37,7 +36,6 @@ public class mage extends creature {
 	}
 
 	public void spells() {
-
 
 	}
 
