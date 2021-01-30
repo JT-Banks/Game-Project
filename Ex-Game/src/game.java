@@ -49,6 +49,7 @@ public class game extends enemy{
 						mage.attack();
 					}
 				}
+			scan.close();
 		}
 		/*
 		 * else {
