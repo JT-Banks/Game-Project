@@ -13,10 +13,10 @@ public class creature {
 	protected static int level = 1;
 	protected static int enemyHP = 150;
 	
-	public static int playerAttack(int attackDmg) {
-		int damageDealt = ThreadLocalRandom.current().nextInt(7, attackDmg);
-		return damageDealt;
-	}
+//	public static int playerAttack(int attackDmg) {
+//		int damageDealt = ThreadLocalRandom.current().nextInt(7, attackDmg);
+//		return damageDealt;
+//	}
 	
 	public static int defend(int dmgReduction) {
 		int damageTaken = ThreadLocalRandom.current().nextInt(25, dmgReduction);
