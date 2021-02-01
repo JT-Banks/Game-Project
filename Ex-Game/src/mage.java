@@ -3,6 +3,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class mage extends creature {
 	
 	static enemy enemies = new enemy();
+	
 	public mage() {
 
 		creature.hp += 12;
@@ -22,20 +23,19 @@ public class mage extends creature {
 				+ "\nIntelligence: " +intell + "\nMind: " + mnd + "\nLuck: " + lck);
 	}
 
-	public static int attack() {
-		int enemyRemainingHealth = 0;
+	public static int mageAttack() {
 		int mageAttack = ThreadLocalRandom.current().nextInt(4, attack);
 		System.out.println("\n### You attacked for: " + mageAttack + " damage! ###\n");
-		enemyRemainingHealth = enemies.getEnemyHp() - attack;
+		int enemyRemainingHealth = enemies.getBrittleSkeletonHp() - mageAttack;
 		System.out.println("Test: Enemy HP: " + enemyRemainingHealth);
-		return attack;
+		return mageAttack;
 	}
 	
-	public static int getEnemyHp(int value) {
-		int enemyRemainingHealth = 0;
-		enemyRemainingHealth = enemy.getEnemyHp() - value;
-		return enemyRemainingHealth;
-	}
+//	public static int getEnemyHp(int value) {
+//		int enemyRemainingHealth = 0;
+//		enemyRemainingHealth = enemy.getEnemyHp() - value;
+//		return enemyRemainingHealth;
+//	}
 
 	public void spells() {
 
