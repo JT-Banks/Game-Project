@@ -11,6 +11,7 @@ public class Player extends Creature {
 	private int level;
 	
 	public Player(int hp, int mp, int str, int dex, int attack, int defense, int level) {
+		
 		super(hp, mp, str, dex, attack, defense, level);
 		this.hp = hp;
 		this.mp = mp;
@@ -20,9 +21,7 @@ public class Player extends Creature {
 		this.defense = defense;
 		this.level = level;
 	}
-	
-	
-	
+		
 	public void getStats() {
 
 		System.out.println("==== Stats ====\nHP: " + hp + "\nMP: " + mp + "\nStrength: " + str + "\nDexiterity: " + dex + "\nAttack: " + attack + "\nDefense: " + defense + "\nLevel: " + level);

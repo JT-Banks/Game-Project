@@ -7,6 +7,7 @@ public class Creature {
 	int str = 10;
 	int dex = 10;
 	int attack = 15;
+	int defense = 27;
 	int level = 1;
 	
     public Creature(int hp, int mp, int str, int dex, int attack, int defense, int level) {
@@ -15,11 +16,10 @@ public class Creature {
 		this.mp = mp;
 		this.str = str;
 		this.attack = attack;
+		this.defense = defense;
 		this.level = level;
 		
 	}
-
-
 	
 //	public static int playerAttack(int attackDmg) {
 //		int damageDealt = ThreadLocalRandom.current().nextInt(7, attackDmg);
