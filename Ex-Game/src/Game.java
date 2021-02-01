@@ -1,17 +1,21 @@
 import java.util.Random;
 import java.util.Scanner;
 public class Game extends Enemy{
+	public Game(int hp, int mp, int str, int dex, int attack, int level) {
+		
+		super(hp, mp, str, dex, attack, level);
+	}
+
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		Random rand = new Random();
-		Player mage = new Player();
+		Player player = new Player();
 		Enemy enemies = new Enemy();
 		String[] enemyArray = {Enemy.brittleSkeleton()};
-		int enemyRemainingHealth = Enemy.getEnemyRemainingHealth();
+		//int enemyRemainingHealth = Enemy.getEnemyRemainingHealth();
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Welcome to my work in progress.\nThe goal of this game is to practice the structure of 'good' code.");
 		System.out.println("Current version: Alpha (ver 1.0)");
-		System.out.println("Please choose a class: \nWarrior\nMage\nRogue\nNecromancer");
 		/*
 		System.out.println("For a summary of each class's playstyle, simply type: [name of class] info, otherwise type: no thanks");
 		String info = scan.nextLine();
@@ -23,17 +27,16 @@ public class Game extends Enemy{
 		//System.out.println("Currently during Alpha, only mage is available. Please select 'Mage'");
 		String answer = scan.nextLine();
 		boolean running = false;
-		if(answer.equalsIgnoreCase("Mage")) {
-			System.out.println("You have selected 'Mage', enjoy your playthrough!");
+		if(answer.equalsIgnoreCase("play")) {
 			running = true;
 			GAME:
 				while(running) {
 					String enemy = enemyArray[rand.nextInt(enemyArray.length)];
 					System.out.println("\n\t ### " +enemy+ " ###");
 
-					System.out.println("\nYour HP: " + mage.getHp() + "\n" );
+					//System.out.println("\nYour HP: " + mage.getHp() + "\n" );
 					//System.out.println("Your Mana: \n" );
-					System.out.println(enemy + "'s HP: " +  enemyRemainingHealth);
+				//	System.out.println(enemy + "'s HP: " +  enemyRemainingHealth);
 					System.out.println("\n## Command menu ##");
 					System.out.print("1. Attack");
 					System.out.println("\t  4. Magic");
@@ -44,7 +47,7 @@ public class Game extends Enemy{
 					String input = scan.nextLine();
 
 					if(input.equals("1")) {
-						mage.mageAttack();
+						player.getStats();
 					}
 				}
 			scan.close();
