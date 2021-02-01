@@ -1,32 +1,29 @@
+import java.util.Random;
 
 public class Enemy extends Creature {	
+	public Enemy(int hp, int mp, int str, int dex, int attack, int level) {
+		super(hp, mp, str, dex, attack, level);
+	}
 	//potentially store values in an array to randomly select value, then add hp of each enemy
 	//such that 155 selected, Brittle Skeleton HP modifier could be + 5 hp, or * 1.86 etc...
 	int[] enemy_HP = {155, 144, 129};
+	Random rand = new Random();
 	public static String brittleSkeleton() {
-		
-		String enemy = "Brittle Skeleton";
-		Creature.hp += 5;
-		Creature.mp += 15;
-		Creature.str += 1;
-		Creature.dex += 2;
-		Creature.intell += 4;
-		Creature.mnd += 0;
-		Creature.lck += 3;		
-		return enemy;
+		Creature enemy = new Creature(214, 20, 15, 20, 10, 1);
+		String skeletonEnemy = "Brittle Skeleton";
+		enemy.hp += 5;
+		enemy.mp += 15;
+		enemy.str += 1;
+		enemy.dex += 2;		
+		return skeletonEnemy;
 	}
 	
-	public static int getBrittleSkeletonHp() {
-	//	int damageDone = enemy.hp - mage.getAttack();
-		return Enemy.hp;
+	public int[] getEnemy_HP() {
+		return enemy_HP;
 	}
-	
-	public int enemyAttack() {
-		return Enemy.attack;
-	}
-	public static int getEnemyRemainingHealth() {
-		
-		return Enemy.enemyHP - Player.getAttack();
+
+	public void setEnemy_HP(int[] enemy_HP) {
+		this.enemy_HP = enemy_HP;
 	}
 	@Override
 	public void death() {
