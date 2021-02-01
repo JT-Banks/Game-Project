@@ -1,20 +1,18 @@
 import java.util.concurrent.ThreadLocalRandom;
 
-public class mage extends creature {
+public class Player extends Creature {
 	
-	static enemy enemies = new enemy();
-	
-	public mage() {
+	public Player() {
 
-		creature.hp += 12;
-		creature.mp += 40;
-		creature.str -= 4;
-		creature.dex += 6;
-		creature.intell += 16;
-		creature.mnd += 10;
-		creature.lck += 1;
-		creature.attack -= 6;
-		creature.level = 1;
+		Creature.hp += 12;
+		Creature.mp += 40;
+		Creature.str -= 4;
+		Creature.dex += 6;
+		Creature.intell += 16;
+		Creature.mnd += 10;
+		Creature.lck += 1;
+		Creature.attack -= 6;
+		Creature.level = 1;
 	}
 
 	public static void statSheet() {
@@ -24,6 +22,7 @@ public class mage extends creature {
 	}
 
 	public static int mageAttack() {
+		Enemy enemies = new Enemy();
 		int mageAttack = ThreadLocalRandom.current().nextInt(4, attack);
 		System.out.println("\n### You attacked for: " + mageAttack + " damage! ###\n");
 		int enemyRemainingHealth = enemies.getBrittleSkeletonHp() - mageAttack;
@@ -42,10 +41,10 @@ public class mage extends creature {
 	}
 
 	public int getHp() {
-		return creature.hp;
+		return Creature.hp;
 	}
 
 	public static int getAttack() {
-		return creature.attack;
+		return Creature.attack;
 	}
 }

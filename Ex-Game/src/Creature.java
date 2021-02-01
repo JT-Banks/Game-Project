@@ -1,6 +1,6 @@
 import java.util.concurrent.ThreadLocalRandom;
 
-public class creature {
+public class Creature {
 	
 	protected static int hp = 150;
     protected static int mp = 35;
@@ -23,11 +23,7 @@ public class creature {
 		return damageTaken;
 	}
 	
-	public static void enemyDeath(int enemyHP) {
-		
-	}
-	
-	public static void playerDeath() {
+	public void death() {
 		
 	}
 }

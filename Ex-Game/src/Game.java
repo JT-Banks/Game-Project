@@ -1,13 +1,13 @@
 import java.util.Random;
 import java.util.Scanner;
-public class game extends enemy{
+public class Game extends Enemy{
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		Random rand = new Random();
-		mage mage = new mage();
-		enemy enemies = new enemy();
-		String[] enemyArray = {enemy.brittleSkeleton()};
-		int enemyRemainingHealth = enemy.getEnemyRemainingHealth();
+		Player mage = new Player();
+		Enemy enemies = new Enemy();
+		String[] enemyArray = {Enemy.brittleSkeleton()};
+		int enemyRemainingHealth = Enemy.getEnemyRemainingHealth();
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Welcome to my work in progress.\nThe goal of this game is to practice the structure of 'good' code.");
 		System.out.println("Current version: Alpha (ver 1.0)");
