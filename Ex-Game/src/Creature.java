@@ -9,7 +9,7 @@ public class Creature {
 	int attack = 15;
 	int level = 1;
 	
-    public Creature(int hp, int mp, int str, int dex, int attack, int level) {
+    public Creature(int hp, int mp, int str, int dex, int attack, int defense, int level) {
 
 		this.hp = hp;
 		this.mp = mp;

@@ -1,17 +1,31 @@
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Player extends Creature {
+
+	private int hp;
+	private int mp;
+	private int str;
+	private int dex;
+	private int attack;
+	private int defense;
+	private int level;
 	
-	Creature player = new Creature(184, 14, 25, 14, 15, 1);
-	Enemy enemies = new Enemy();
-	
-	public Player(int hp, int mp, int str, int dex, int attack, int level) {
-		super(hp, mp, str, dex, attack, level);
+	public Player(int hp, int mp, int str, int dex, int attack, int defense, int level) {
+		super(hp, mp, str, dex, attack, defense, level);
+		this.hp = hp;
+		this.mp = mp;
+		this.str = str;
+		this.dex = dex;
+		this.attack = attack;
+		this.defense = defense;
+		this.level = level;
 	}
+	
+	
 	
 	public void getStats() {
 
-		System.out.println("==== Stats ====\nHP: " + hp + "\nMP: " + mp + "\nStrength: " + str + "\nDexiterity: " + dex + "\nLevel: " + level);
+		System.out.println("==== Stats ====\nHP: " + hp + "\nMP: " + mp + "\nStrength: " + str + "\nDexiterity: " + dex + "\nAttack: " + attack + "\nDefense: " + defense + "\nLevel: " + level);
 	}
 /*
 	public static int mageAttack() {

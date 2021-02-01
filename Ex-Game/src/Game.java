@@ -1,16 +1,16 @@
 import java.util.Random;
 import java.util.Scanner;
 public class Game extends Enemy{
-	public Game(int hp, int mp, int str, int dex, int attack, int level) {
+	public Game(int hp, int mp, int str, int dex, int attack, int defense, int level) {
 		
-		super(hp, mp, str, dex, attack, level);
+		super(hp, mp, str, dex, attack, defense, level);
 	}
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		Random rand = new Random();
-		Player player = new Player();
-		Enemy enemies = new Enemy();
+		Player player = new Player(184, 14, 19, 14, 25, 16, 1 );
+		//Enemy enemies = new Enemy(attack, attack, attack, attack, attack, attack);
 		String[] enemyArray = {Enemy.brittleSkeleton()};
 		//int enemyRemainingHealth = Enemy.getEnemyRemainingHealth();
 		Scanner scan = new Scanner(System.in);
