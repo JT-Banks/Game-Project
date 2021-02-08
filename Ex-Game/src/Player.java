@@ -1,6 +1,6 @@
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Player extends Creature {
+public class Player {
 
 	private int hp;
 	private int mp;
@@ -12,7 +12,6 @@ public class Player extends Creature {
 	
 	public Player(int hp, int mp, int str, int dex, int attack, int defense, int level) {
 		
-		super(hp, mp, str, dex, attack, defense, level);
 		this.hp = hp;
 		this.mp = mp;
 		this.str = str;
@@ -21,7 +20,8 @@ public class Player extends Creature {
 		this.defense = defense;
 		this.level = level;
 	}
-		
+	//need a way to implement stat call at any point during current game session
+	//Should be able to display stats of current level
 	public void getStats() {
 
 		System.out.println("==== Stats ====\nHP: " + hp + "\nMP: " + mp + "\nStrength: " + str + "\nDexiterity: " + dex + "\nAttack: " + attack + "\nDefense: " + defense + "\nLevel: " + level);

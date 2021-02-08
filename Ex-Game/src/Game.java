@@ -1,10 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
-public class Game extends Enemy{
-	public Game(int hp, int mp, int str, int dex, int attack, int defense, int level) {
-		
-		super(hp, mp, str, dex, attack, defense, level);
-	}
+public class Game {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
