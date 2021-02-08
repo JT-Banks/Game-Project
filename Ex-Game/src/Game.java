@@ -2,7 +2,6 @@ import java.util.Random;
 import java.util.Scanner;
 public class Game {
 
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		Random rand = new Random();
 		Player player = new Player(184, 14, 19, 14, 25, 16, 1 );

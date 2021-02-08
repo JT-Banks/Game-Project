@@ -20,6 +20,7 @@ public class Player {
 		this.defense = defense;
 		this.level = level;
 	}
+	
 	//need a way to implement stat call at any point during current game session
 	//Should be able to display stats of current level
 	public void getStats() {
