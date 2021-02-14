@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="libraryTable">
+    <library name="glLib">
+      <CLASSES />
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="glLib1">
+      <CLASSES>
+        <root url="file://$USER_HOME$/IdeaProjects/worm/src/com/glLib" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+      <jarDirectory url="file://$USER_HOME$/IdeaProjects/worm/src/com/glLib" recursive="false" />
+    </library>
+  </component>
+</project>
