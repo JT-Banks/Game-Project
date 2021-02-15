@@ -1,10 +1,11 @@
 import java.util.Random;
 
-public class Skeleton extends NPC {
+public class Skeleton extends Entity {
   //  public String name = generateName();
+	private int friendly = 0;
     private String name;
 
-	public Skeleton(String name,int hp, int mp, int str, int dex, int attackPwr, int defense, int level, int friendly){
+	public Skeleton(String name,int hp, int mp, int str, int dex, int attackPwr, int defense, int level, int friendly) {
 
         this.name = "Brittle Skeleton";
         this.hp = 100;
@@ -14,9 +15,7 @@ public class Skeleton extends NPC {
         this.attackPwr = attackPwr;
         this.defense = 100;
         this.level = level;
-        this.friendly = 0;
-
-
+        this.friendly = friendly;
     }
 
     public String createName(){
@@ -36,8 +35,6 @@ public class Skeleton extends NPC {
         Attack attack = new Attack();
         attack.dealDmg("physical",1,1,100);
 
-
     }
-
 
 }

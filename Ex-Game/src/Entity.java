@@ -1,4 +1,4 @@
-import java.util.concurrent.ThreadLocalRandom;
+
 public class Entity{
 	
     public int hp;

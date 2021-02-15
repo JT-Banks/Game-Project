@@ -1,10 +1,8 @@
 public class NPC extends Entity {
     public int friendly = 0;
 
-    public NPC(){
-
-
-
+    public NPC(int friendly){
+   
     }
 
     public NPC(int hp, int mp, int str, int dex, int attackPwr, int defense, int level, int friendly) {
@@ -20,7 +18,6 @@ public class NPC extends Entity {
     }
 
     public void aiRoutine(){
-
 
 
     }
