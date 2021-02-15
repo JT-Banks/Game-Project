@@ -1,40 +1,29 @@
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Skeleton extends Entity {
-  //  public String name = generateName();
+	
 	private int friendly = 0;
     private String name;
-
-	public Skeleton(String name,int hp, int mp, int str, int dex, int attackPwr, int defense, int level, int friendly) {
+    
+	public Skeleton(String name, int hp, int mp, int str, int dex, int attackPwr, int defense, int level, int friendly) {
 
         this.name = "Brittle Skeleton";
         this.hp = 100;
-        this.mp = 100;
+        this.mp = 10;
         this.str = 10;
-        this.dex = 1;
-        this.attackPwr = attackPwr;
-        this.defense = 100;
-        this.level = level;
-        this.friendly = friendly;
+        this.dex = 8;
+        this.attackPwr = 5;
+        this.defense = 25;
+        this.level = 1;
+        this.friendly = 0;
     }
 
-    public String createName(){
-
-        Random rand = new Random();
-        int skeletonNumber = (int)(Math.round(Math.random() * (100 - 1) + 1));
-        String intToString =  Integer.toString(skeletonNumber);
-        String name = "Brittle Skeleton" + "intToString";
-		return name;
-
-    }
-
-    public void skeletonAttack(){
-        ////Does extra calcs/stuff
-        ///Pass results to attack
-
+    public int skeletonAttack() {
+        
         Attack attack = new Attack();
-        attack.dealDmg("physical",1,1,100);
-
+        int damageDealt = attack.dealDmg("physical", this.str , this.dex, this.attackPwr);
+        return ThreadLocalRandom.current().nextInt(10, damageDealt);
+        
     }
-
+    
 }
