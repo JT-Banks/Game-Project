@@ -1,5 +1,6 @@
 import java.util.concurrent.ThreadLocalRandom;
 public class Entity{
+	
     public int hp;
     public  int mp;
     public  int str;
@@ -14,7 +15,6 @@ public class Entity{
         //MENU???
         //ATTACK_MENU
 
-
     }
 
 
@@ -25,5 +25,4 @@ public class Entity{
 
     }
 
-    //code reuse here
 }
