@@ -6,13 +6,14 @@ public class Game {
 		Random rand = new Random();
 		Player player = new Player(0, 0, 0, 0, 0, 0, 0);
 		Skeleton skele = new Skeleton(" ", 0, 0, 0, 0, 0, 0, 0, 0);
-		skele.display();
+		player.playerAttack();
 		//Enemy enemies = new Enemy(attack, attack, attack, attack, attack, attack);
 		//int enemyRemainingHealth = Enemy.getEnemyRemainingHealth();
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Welcome to my work in progress.\nThe goal of this game is to practice the structure of 'good' code.");
-		System.out.println("Current version: Alpha (ver 1.0)");
-		System.out.println("Currently in testing phase, please type 'play' to run the game");
+		System.out.println("Welcome to my work in progress.\n\nThe goal of this game is to practice the structure of 'good' code.");
+		System.out.println("\nCurrent version: Alpha (ver 1.0)");
+		System.out.println("\nCurrently in testing phase, please type 'play' to run the game");
+		System.out.println("\nIf you wish to see your stats, type 'stats' at any time");
 		String answer = scan.nextLine();
 		boolean running = false;
 		if(answer.equalsIgnoreCase("play")) {
@@ -20,10 +21,10 @@ public class Game {
 			GAME:
 				while(running) {
 
-					System.out.println("\nYour HP: " + player.getHp());
-					System.out.println("Your Mana: " + player.getMana() + "\n");
-					System.out.println(skele + "'s HP: " +  skele.getHp());
-					System.out.println(skele + "'s mana: " + skele.getMana());
+					System.out.println("\nPlayer HP: " + player.getHp());
+					System.out.println("Player Mana: " + player.getMana() + "\n");
+					System.out.println(skele.getName() + "'s HP: " +  skele.getHp());
+					System.out.println(skele.getName() + "'s Mana: " + skele.getMana());
 					System.out.println("\n## Command menu ##");
 					System.out.print("1. Attack");
 					System.out.println("\t  4. Magic");
@@ -37,7 +38,7 @@ public class Game {
 						player.display();
 					}
 					if(input.equals("1")) {
-						System.out.println("You attack for: " + player.playerAttack() + " damage");
+						System.out.println("#### You attack for: " + player.playerAttack() + " damage ####");
 					}
 				}
 			scan.close();

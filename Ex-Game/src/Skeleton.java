@@ -26,4 +26,8 @@ public class Skeleton extends Entity {
         
     }
     
+    public String getName() {
+    	return this.name;
+    }
+    
 }
