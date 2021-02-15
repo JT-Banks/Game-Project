@@ -22,7 +22,6 @@ public class Entity {
         //Collision type? Wall, spell, enemy attack etc
         //If collision is enemy attack/projectile subtract dmg from health
         //If collision is other do something else....
-
     }
     
     public int getHp() {
@@ -33,8 +32,11 @@ public class Entity {
     	return this.mp;
     }
     
+    public int getDefense() {
+    	return this.defense;
+    }
+    
     public void display() {
     	System.out.println(name + "'s stats \nHealth - " + hp +  "\nMana - " + mp +"\nStrength - " + str + "\nDexterity - " + dex + "\nDefense - " + defense + "\nLevel - " + level);
     }
-
 }
