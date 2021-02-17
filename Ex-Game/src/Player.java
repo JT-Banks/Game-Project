@@ -28,6 +28,7 @@ public class Player extends Entity {
         return damageDealt;
 	}
 	
+	@Override
 	public int getAttack() {
 		
 		attackPwr = (int) (str * 1.14);
