@@ -39,6 +39,7 @@ public class Game {
 					}
 					if(input.equals("1")) {
 						System.out.println("#### You attack for: " + player.playerAttack() + " damage ####");
+						System.out.println(skele.damageDone(player.attackPwr));
 					}
 				}
 			scan.close();

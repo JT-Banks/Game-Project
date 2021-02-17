@@ -11,7 +11,6 @@ public class Entity {
     public  int level;
     public int friendly;
 
-
     public static void interactions() {
         ///Interactions??
         //MENU???
@@ -36,7 +35,18 @@ public class Entity {
     	return this.defense;
     }
     
+    public int getLevel() {
+    	return this.level;
+    }
+    
+    public int damageDone(int damageDone) {
+    	
+    	damageDone = attackPwr - defense;
+		return damageDone;
+    }
+    
     public void display() {
     	System.out.println(name + "'s stats \nHealth - " + hp +  "\nMana - " + mp +"\nStrength - " + str + "\nDexterity - " + dex + "\nDefense - " + defense + "\nLevel - " + level);
     }
+    
 }
