@@ -4,8 +4,5 @@ public class Defense extends Entity{
     	
     	int damageReduction = 0;
         return damageReduction;
-
     }
-
-
 }

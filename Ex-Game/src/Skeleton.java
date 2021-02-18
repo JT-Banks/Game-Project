@@ -15,7 +15,7 @@ public class Skeleton extends Entity {
 		this.attackPwr = (int) (str * 1.14);
 		this.defense = 25;
 		this.level = 1;
-		this.friendly = 0;
+		this.setFriendly(0);
 	}
 
 	public int skeletonAttack() {
@@ -36,4 +36,11 @@ public class Skeleton extends Entity {
 		return damageDone;
 	}
 
+	public int getFriendly() {
+		return friendly;
+	}
+
+	public void setFriendly(int friendly) {
+		this.friendly = friendly;
+	}
 }

@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Game {
 
 	public static void main(String[] args) {
-		Random rand = new Random();
 		Player player = new Player(0, 0, 0, 0, 0, 0, 0);
 		Skeleton skele = new Skeleton(" ", 0, 0, 0, 0, 0, 0, 0, 0);
 		player.playerAttack();

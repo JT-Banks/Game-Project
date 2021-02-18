@@ -3,6 +3,7 @@ public class Player extends Entity {
 
 	public Player(int hp, int mp, int str, int dex, int attackPwr, int defense, int level) {
 		
+		@SuppressWarnings("unused")
 		Attack attackPower = new Attack();
 		this.hp = 155;
 		this.mp = 20;
