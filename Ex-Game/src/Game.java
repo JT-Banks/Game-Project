@@ -1,4 +1,3 @@
-import java.awt.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Game {
@@ -19,8 +18,7 @@ public class Game {
 		if(answer.equalsIgnoreCase("play")) {
 			running = true;
 			GAME:
-				while(running) {
-					
+				while(running) {		
 					if(!entity.contains(1)) {
 						entity.add(new Skeleton(" ", 0, 0, 0, 0, 0, 0, 0, 0));
 					}			
