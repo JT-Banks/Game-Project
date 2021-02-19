@@ -23,8 +23,7 @@ public class Game {
 					
 					if(!entity.contains(1)) {
 						entity.add(new Skeleton(" ", 0, 0, 0, 0, 0, 0, 0, 0));
-					}
-					
+					}			
 					System.out.println("\nPlayer HP: " + entity.get(0).getHp());
 					System.out.println("Player Mana: " + entity.get(0).getMana() + "\n");
 					System.out.println(entity.get(1).getName() + "'s HP: " +  enemyHealth);
