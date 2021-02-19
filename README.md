@@ -8,7 +8,7 @@ The code will be basic, and later implemented on with data structures and furthe
 
 __The endgoal is a fully function adventure/rpg game using Jpanels, sounds, tiles, and collisons. This will definitely change with iterations, and scope will be all over the place, but this is primarily a learning experience, and endgoal is not my first intentsion.__
 
-# To run java Program
+# To run Java Program
 1. Open command prompt, and go to the directory project is cloned
 2. Type ```javac Game.java``` to compile
 3. Once compiled type ```java Game.java``` to run the program
