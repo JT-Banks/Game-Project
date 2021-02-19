@@ -1,15 +1,14 @@
+import java.awt.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 public class Game {
 
 	public static void main(String[] args) {
 		//Create array of entities
-		Entity[] entity;
-		entity = new Entity[2];
-		entity[0] = new Player(0, 0, 0, 0, 0, 0, 0, 0);
-		//Player player = new Player(0, 0, 0, 0, 0, 0, 0, 0);
-		Skeleton skele = new Skeleton(" ", 0, 0, 0, 0, 0, 0, 0, 0);
-		//Enemy enemies = new Enemy(attack, attack, attack, attack, attack, attack);
-		//int enemyRemainingHealth = Enemy.getEnemyRemainingHealth();
+		ArrayList<Entity> entity = new ArrayList<Entity>();	
+		entity.add(new Player(0, 0, 0, 0, 0, 0, 0, 0));
+		entity.add(new Skeleton(" ", 0, 0, 0, 0, 0, 0, 0, 0));
+		int enemyHealth = entity.get(1).getHp();
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Welcome to my work in progress.\n\nThe goal of this game is to practice the structure of 'good' code.");
 		System.out.println("\nCurrent version: Alpha (ver 1.0)");
@@ -21,11 +20,15 @@ public class Game {
 			running = true;
 			GAME:
 				while(running) {
-
-					System.out.println("\nPlayer HP: " + entity[0].getHp());
-					System.out.println("Player Mana: " + entity[0].getMana() + "\n");
-					System.out.println(skele.getName() + "'s HP: " +  skele.getHp());
-					System.out.println(skele.getName() + "'s Mana: " + skele.getMana());
+					
+					if(!entity.contains(1)) {
+						entity.add(new Skeleton(" ", 0, 0, 0, 0, 0, 0, 0, 0));
+					}
+					
+					System.out.println("\nPlayer HP: " + entity.get(0).getHp());
+					System.out.println("Player Mana: " + entity.get(0).getMana() + "\n");
+					System.out.println(entity.get(1).getName() + "'s HP: " +  enemyHealth);
+					System.out.println(entity.get(1).getName() + "'s Mana: " + entity.get(1).mp);
 					System.out.println("\n## Command menu ##");
 					System.out.print("1. Attack");
 					System.out.println("\t  4. Magic");
@@ -36,18 +39,20 @@ public class Game {
 					String input = scan.nextLine();
 
 					if(input.equals("stats")) {
-						entity[0].display();
+						entity.get(1).display();
+						entity.get(1).display();
 					}
 					
 					if(input.equals("1")) {
-						System.out.println("#### You attack for: " + entity[0].playerAttack() + " damage ####");
-						System.out.println(skele.damageDone(entity[0].attackPwr));
+						
+						System.out.println("#### You attack for: " + entity.get(0).playerAttack() + " damage ####");
+						enemyHealth = entity.get(1).hp -= entity.get(0).playerAttack();		
 					}
 					
-					if(skele.getHp() == 0) {
-						System.out.println("*** " + skele.getName() + " was defeated! ***");
-						System.out.println("You claim " + entity[0].getExp() +" experience points!");
-						
+					if(entity.get(1).hp < 0) {
+						entity.remove(1);
+						System.out.println("*** " + entity.get(1).getName() + " was defeated! ***");
+						System.out.println("You claim " + entity.get(0).getExp() +" experience points!");				
 					}
 				}
 			scan.close();

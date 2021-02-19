@@ -23,12 +23,16 @@ public class Entity {
 		//If collision is enemy attack/projectile subtract dmg from health
 		//If collision is other do something else....
 	}
-	
-public int playerAttack() {
-		
+
+	public int playerAttack() {
+
 		Attack attack = new Attack();
-        int damageDealt = attack.dealDmg("physical", this.str , this.dex, this.attackPwr);
-        return damageDealt;
+		int damageDealt = attack.dealDmg("physical", this.str , this.dex, this.attackPwr);
+		return damageDealt;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	public int getHp() {
@@ -61,7 +65,7 @@ public int playerAttack() {
 	public void display() {
 		System.out.println(name + "'s stats \nHealth - " + hp +  "\nMana - " + mp +"\nStrength - " + str + "\nDexterity - " + dex + "\nDefense - " + defense + "\nLevel - " + level);
 	}
-	
+
 	public boolean death(boolean death) {
 		return true;
 	}
