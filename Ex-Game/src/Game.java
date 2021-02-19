@@ -38,7 +38,7 @@ public class Game {
 					String input = scan.nextLine();
 
 					if(input.equals("stats")) {
-						entity.get(1).display();
+						entity.get(0).display();
 						entity.get(1).display();
 					}
 					
