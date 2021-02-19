@@ -10,6 +10,7 @@ public class Entity {
 	public  int defense;
 	public  int level;
 	public int friendly;
+	public int experience;
 
 	public static void interactions() {
 		///Interactions??
@@ -21,6 +22,13 @@ public class Entity {
 		//Collision type? Wall, spell, enemy attack etc
 		//If collision is enemy attack/projectile subtract dmg from health
 		//If collision is other do something else....
+	}
+	
+public int playerAttack() {
+		
+		Attack attack = new Attack();
+        int damageDealt = attack.dealDmg("physical", this.str , this.dex, this.attackPwr);
+        return damageDealt;
 	}
 
 	public int getHp() {
@@ -52,6 +60,15 @@ public class Entity {
 
 	public void display() {
 		System.out.println(name + "'s stats \nHealth - " + hp +  "\nMana - " + mp +"\nStrength - " + str + "\nDexterity - " + dex + "\nDefense - " + defense + "\nLevel - " + level);
+	}
+	
+	public boolean death(boolean death) {
+		return true;
+	}
+
+	public int getExp() {
+		int exp = experience + 25;
+		return exp;
 	}
 
 }

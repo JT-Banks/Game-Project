@@ -2,10 +2,15 @@ import java.util.Random;
 import java.util.Scanner;
 public class Game {
 
+	 
+	
 	public static void main(String[] args) {
-		Player player = new Player(0, 0, 0, 0, 0, 0, 0);
+		//Create array of entities
+		Entity[] entity;
+		entity = new Entity[2];
+		entity[0] = new Player(0, 0, 0, 0, 0, 0, 0, 0);
+		//Player player = new Player(0, 0, 0, 0, 0, 0, 0, 0);
 		Skeleton skele = new Skeleton(" ", 0, 0, 0, 0, 0, 0, 0, 0);
-		player.playerAttack();
 		//Enemy enemies = new Enemy(attack, attack, attack, attack, attack, attack);
 		//int enemyRemainingHealth = Enemy.getEnemyRemainingHealth();
 		Scanner scan = new Scanner(System.in);
@@ -20,8 +25,8 @@ public class Game {
 			GAME:
 				while(running) {
 
-					System.out.println("\nPlayer HP: " + player.getHp());
-					System.out.println("Player Mana: " + player.getMana() + "\n");
+					System.out.println("\nPlayer HP: " + entity[0].getHp());
+					System.out.println("Player Mana: " + entity[0].getMana() + "\n");
 					System.out.println(skele.getName() + "'s HP: " +  skele.getHp());
 					System.out.println(skele.getName() + "'s Mana: " + skele.getMana());
 					System.out.println("\n## Command menu ##");
@@ -34,11 +39,18 @@ public class Game {
 					String input = scan.nextLine();
 
 					if(input.equals("stats")) {
-						player.display();
+						entity[0].display();
 					}
+					
 					if(input.equals("1")) {
-						System.out.println("#### You attack for: " + player.playerAttack() + " damage ####");
-						System.out.println(skele.damageDone(player.attackPwr));
+						System.out.println("#### You attack for: " + entity[0].playerAttack() + " damage ####");
+						System.out.println(skele.damageDone(entity[0].attackPwr));
+					}
+					
+					if(skele.getHp() == 0) {
+						System.out.println("*** " + skele.getName() + " was defeated! ***");
+						System.out.println("You claim " + entity[0].getExp() +" experience points!");
+						
 					}
 				}
 			scan.close();

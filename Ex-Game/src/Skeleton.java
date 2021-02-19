@@ -31,8 +31,7 @@ public class Skeleton extends Entity {
 
 	@Override
 	public int damageDone(int damageDone) {
-
-		damageDone =  attackPwr - this.defense;
+		
 		return damageDone;
 	}
 
