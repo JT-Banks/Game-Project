@@ -24,9 +24,7 @@ public class Player extends Entity {
 		attackPwr = (int) (str  * 1.14);
 		System.out.println("==== Stats ====\nHP: " + hp + "\nMP: " + mp + "\nStrength: " + str + "\nDexterity: " + dex + "\nAttack: " + attackPwr + "\nDefense: " + defense + "\nLevel: " + level);
 	}
-	
-	
-	
+		
 	public int getHp() {
 		return this.hp;
 	}
