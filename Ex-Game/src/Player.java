@@ -4,8 +4,7 @@ public class Player extends Entity {
 	private int experience;
 
 	public Player(int hp, int mp, int str, int dex, int attackPwr, int defense,int experience, int level) {
-		
-		@SuppressWarnings("unused")
+
 		Attack attackPower = new Attack();
 		this.hp = 155;
 		this.mp = 20;
@@ -20,30 +19,23 @@ public class Player extends Entity {
 	//Should be able to display stats of current level
 	@Override
 	public void display() {
-		
 		attackPwr = (int) (str  * 1.14);
 		System.out.println("==== Stats ====\nHP: " + hp + "\nMP: " + mp + "\nStrength: " + str + "\nDexterity: " + dex + "\nAttack: " + attackPwr + "\nDefense: " + defense + "\nLevel: " + level);
 	}
-		
 	public int getHp() {
 		return this.hp;
 	}
-	
 	public int getMp() {
 		return this.mp;
 	}
-	
 	public int getStr()	{
 		return this.str;
 	}
-	
 	public int getDex() {
 		return this.dex;
-		}
-	
+	}
 	@Override
 	public int getAttack() {
-		
 		attackPwr = (int) (str * 1.14);
 		return attackPwr;
 	}
@@ -55,7 +47,14 @@ public class Player extends Entity {
 	public int getLevel() {
 		return this.level;
 	}
-	
+	@Override
+	public String experienceThreshold(int experience) {
+		int expNeededToLevel = level * 100;
+		if(expNeededToLevel > experience)
+			return levelUp();
+		return expNeededToLevel + " experience until next level";
+	}
+	@Override
 	public String levelUp() {
 		level = level + 1;
 		hp = hp + 24;
@@ -66,9 +65,9 @@ public class Player extends Entity {
 		defense = defense + 7;
 		return "You leveled up!";	
 	}
-	
+	@Override
 	public int damageDone(int damageDone) {
-		
+
 		damageDone =  playerAttack() - this.defense;
 		return damageDone;
 	}

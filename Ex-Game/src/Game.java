@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Game {
 
 	public static void main(String[] args) {
-		//Create array of entities
+		//Create an array of entities
 		ArrayList<Entity> entity = new ArrayList<Entity>();	
 		entity.add(new Player(0, 0, 0, 0, 0, 0, 0, 0));
 		entity.add(new Skeleton(" ", 0, 0, 0, 0, 0, 0, 0, 0));
@@ -39,26 +39,21 @@ public class Game {
 						entity.get(0).display();
 						entity.get(1).display();
 					}
-					
+
 					if(input.equals("1")) {
-						
+
 						System.out.println("#### You attack for: " + entity.get(0).playerAttack() + " damage ####");
-						enemyHealth = entity.get(1).hp -= entity.get(0).playerAttack();		
+						enemyHealth = entity.get(1).hp -= entity.get(0).playerAttack();	
 					}
-					
+
 					if(entity.get(1).hp < 0) {
 						entity.remove(1);
 						System.out.println("*** " + entity.get(1).getName() + " was defeated! ***");
-						System.out.println("You claim " + entity.get(0).getExp() +" experience points!");				
+						System.out.println("You claim " + entity.get(0).getExp() +" experience points!");
+						
 					}
 				}
 			scan.close();
 		}
-		/*
-		 * else {
-		 *	//System.out.println("Wrong input, try again");
-		 * //answer = scan.nextLine();
-		}
-		 */
 	}
 }

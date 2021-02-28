@@ -55,6 +55,23 @@ public class Entity {
 	public int getLevel() {
 		return this.level;
 	}
+	
+	public String experienceThreshold(int experience) {
+		int expNeededToLevel = level * 100;
+		if(expNeededToLevel > experience)
+			return levelUp();
+		return expNeededToLevel + " experience until next level";
+	}
+	public String levelUp() {
+		level = level + 1;
+		hp = hp + 24;
+		mp = mp + 9;
+		str = str + 5;
+		dex = dex + 3;
+		attackPwr = attackPwr + 4;
+		defense = defense + 7;
+		return "You leveled up!";	
+	}
 
 	public int damageDone(int damageDone) {
 
