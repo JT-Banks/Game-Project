@@ -1,4 +1,7 @@
-public class Defense extends Entity{
+package actions;
+import entities.ParentEntity;
+
+public class Defense extends ParentEntity{
 
     public int defend(int incDmg,int dex, int str) {
     	

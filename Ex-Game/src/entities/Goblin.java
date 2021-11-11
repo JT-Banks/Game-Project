@@ -1,9 +1,12 @@
+package entities;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Goblin extends Entity {
+import actions.Attack;
+
+public class Goblin extends ParentEntity {
 
 
-	public Goblin(String name, int hp, int mp, int str, int dex, int attackPwr, int defense, int level, int friendly) {
+	public Goblin(String name, int hp, int mp, int str, int dex, int attackPwr, int defense, int level) {
 
 		this.name = "Goblin Smasher";
 		this.hp = 164;
@@ -13,7 +16,6 @@ public class Goblin extends Entity {
 		this.attackPwr = (int) (str * 1.14);
 		this.defense = 29;
 		this.level = 1;
-		this.friendly = 0;
 	}
 
 	public int goblinAttack() {
@@ -26,11 +28,5 @@ public class Goblin extends Entity {
 	public String getName() {
 		return this.name;
 	}
-
-	@Override
-	public int damageDone(int damageDone) {
-
-		damageDone =  attackPwr - this.defense;
-		return damageDone;
-	}  
+  
 }

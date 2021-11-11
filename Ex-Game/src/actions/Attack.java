@@ -1,10 +1,13 @@
+package actions;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Attack extends Entity {
+import entities.ParentEntity;
+
+public class Attack extends ParentEntity {
 
 	public String element;
 
-	public int dealDmg(String element, int str, int dex, int attackPwr) {
+	public int dealDmg(String element, double str, int dex, int attackPwr) {
 
 		this.element = element;
 		this.str = str;
@@ -12,7 +15,16 @@ public class Attack extends Entity {
 		this.attackPwr = attackPwr;
 		//Damage dealt should be: damageDealt = attackPwr * (100% -f(Defense))
 		//Work on this later
-		return ThreadLocalRandom.current().nextInt(str - 5, (int) (str * 1.14));
+		return ThreadLocalRandom.current().nextInt((int) (str - 5), (int) (str * 1.14));
+	}
+	
+	public int enemyDmg(String element, double str, int dex, int attackPwr) {
+		
+		this.element = element;
+		this.str = str;
+		this.dex = dex;
+		this.attackPwr = attackPwr;
+		return ThreadLocalRandom.current().nextInt((int) (str - 5), (int) (str * 1.08));
 	}
 
 	public int getAttackPower() {

@@ -1,4 +1,6 @@
-public class NPC extends Entity {
+package entities;
+
+public class NPC extends ParentEntity {
     public int friendly = 0;
 
     public NPC(int friendly){
