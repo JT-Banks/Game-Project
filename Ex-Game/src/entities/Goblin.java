@@ -6,10 +6,10 @@ import actions.Attack;
 public class Goblin extends ParentEntity {
 
 
-	public Goblin(String name, int hp, int mp, int str, int dex, int attackPwr, int defense, int level) {
+	public Goblin() {
 
 		this.name = "Goblin Smasher";
-		this.hp = 164;
+		this.hp = 16;
 		this.mp = 32;
 		this.str = 14;
 		this.dex = 11;
@@ -27,6 +27,12 @@ public class Goblin extends ParentEntity {
 
 	public String getName() {
 		return this.name;
+	}
+	
+	@Override
+	public void display() {
+		System.out.println("\n" + name + "'s stats \nHealth - " + hp + "\nMana - " + mp + "\nStrength - " + str
+				+ "\nDexterity - " + dex + "\nDefense - " + defense + "\nLevel - " + level);
 	}
   
 }

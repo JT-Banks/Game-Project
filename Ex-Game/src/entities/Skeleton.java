@@ -10,7 +10,7 @@ public class Skeleton extends ParentEntity {
 	public Skeleton() {
 
 		this.name = "Brittle Skeleton";
-		this.hp = 129;
+		this.hp = 16;
 		this.mp = 14;
 		this.str = 10;
 		this.dex = 8;

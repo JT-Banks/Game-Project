@@ -6,7 +6,7 @@ public class Player extends ParentEntity {
 
 	private int experience;
 
-	public Player(int hp, int mp, double str, int dex, int attackPwr, int defense, int experience, int level) {
+	public Player() {
 
 		@SuppressWarnings("unused")
 		Attack attackPower = new Attack();
@@ -24,7 +24,6 @@ public class Player extends ParentEntity {
 	// Should be able to display stats of current level
 	@Override
 	public void display() {
-
 		attackPwr = (int) (str * 1.14);
 		System.out.println("==== Your Stats ====\nHP: " + hp + "\nMP: " + mp + "\nStrength: " + str + "\nDexterity: " + dex
 				+ "\nAttack: " + attackPwr + "\nDefense: " + defense + "\nLevel: " + level);
