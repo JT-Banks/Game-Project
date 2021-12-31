@@ -7,7 +7,7 @@ public class ParentEntity {
 	public String name;
 	public int hp;
 	public int mp;
-	public double str;
+	public int str;
 	public int dex;
 	public int attackPwr;
 	public int defense;
@@ -15,7 +15,7 @@ public class ParentEntity {
 	public int friendly;
 	public int experience;
 	
-	public double playerAttack() {
+	public int playerAttack() {
 
 		//Player player = new Player(hp, mp, str, dex, attackPwr, defense, experience, level);
 		Attack attack = new Attack();
@@ -58,7 +58,7 @@ public class ParentEntity {
 
 	public void display() {
 		System.out.println(name + "'s stats \nHealth - " + hp + "\nMana - " + mp + "\nStrength - " + str
-				+ "\nDexterity - " + dex + "\nDefense - " + defense + "\nLevel - " + level);
+						      + "\nDexterity - " + dex + "\nDefense - " + defense + "\nLevel - " + level);
 	}
 
 	public boolean death(boolean death) {

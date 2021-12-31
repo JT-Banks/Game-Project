@@ -7,7 +7,7 @@ public class Attack extends ParentEntity {
 
 	public String element;
 
-	public int dealDmg(String element, double str, int dex, int attackPwr) {
+	public int dealDmg(String element, int str, int dex, int attackPwr) {
 
 		this.element = element;
 		this.str = str;
@@ -18,7 +18,7 @@ public class Attack extends ParentEntity {
 		return ThreadLocalRandom.current().nextInt((int) (str - 5), (int) (str * 1.14));
 	}
 	
-	public int enemyDmg(String element, double str, int dex, int attackPwr) {
+	public int enemyDmg(String element, int str, int dex, int attackPwr) {
 		
 		this.element = element;
 		this.str = str;

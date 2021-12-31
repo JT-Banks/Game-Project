@@ -37,7 +37,7 @@ public class Player extends ParentEntity {
 		return this.mp;
 	}
 
-	public double getStr() {
+	public int getStr() {
 		return this.str;
 	}
 
