@@ -9,7 +9,7 @@ public class Goblin extends ParentEntity {
 	public Goblin() {
 
 		this.name = "Goblin Smasher";
-		this.hp = 16;
+		this.hp = ThreadLocalRandom.current().nextInt(99, 118);;
 		this.mp = 32;
 		this.str = 14;
 		this.dex = 11;

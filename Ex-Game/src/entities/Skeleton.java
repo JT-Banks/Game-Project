@@ -6,17 +6,21 @@ import actions.Attack;
 public class Skeleton extends ParentEntity {
 
 	private String name;
-
+	Player player = new Player();
 	public Skeleton() {
 
 		this.name = "Brittle Skeleton";
-		this.hp = 16;
+		this.hp = ThreadLocalRandom.current().nextInt(114, 146);
 		this.mp = 14;
 		this.str = 10;
 		this.dex = 8;
 		this.attackPwr = (int) (str * 1.14);
 		this.defense = 25;
-		this.level = 1;
+		/* How to calculate enemy level based on player level...
+		 * Scenario: Player level(3), Skeleton level should be lowest 1, highest 5
+		 * << 2 && >> 2 
+		 */
+		this.level = ThreadLocalRandom.current().nextInt(player.level, player.level+2);
 	}
 
 	public int skeletonAttack() {
@@ -24,6 +28,11 @@ public class Skeleton extends ParentEntity {
 		Attack attack = new Attack();
 		int damageDealt = attack.dealDmg("physical", this.str, this.dex, this.attackPwr);
 		return ThreadLocalRandom.current().nextInt(10, damageDealt);
+	}
+	//Take in arguments variable of fire damage, calculate dmg taken
+	public int fireDamageTaken(int fireDamage) {
+		fireDamage = (int) (fireDamage * 0.2);
+		return fireDamage;
 	}
 
 	public String getName() {

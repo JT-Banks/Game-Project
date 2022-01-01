@@ -33,9 +33,13 @@ public class Game {
 					if (input.equals("stats")) {
 						entity.get(0).display();
 					}
-					if (input.equals("1")) {
+					if(input.equals("1")) {
 						attackOption(entity);
-					} else {
+					} 
+					if(input.equals("3")) {
+						entity.get(1).display();
+					}
+					else {
 						System.out.println("Wrong input, try again");
 						answer = scan.nextLine();
 					}
