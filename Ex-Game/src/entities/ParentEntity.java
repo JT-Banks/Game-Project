@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import actions.Attack;
 
 public class ParentEntity {
@@ -30,6 +32,13 @@ public class ParentEntity {
 		int enemyDamageDealt = attack.enemyDmg("physical", this.str, this.dex, this.attackPwr);
 		return enemyDamageDealt;
 	}
+	//Probably need to design something reuseable...and not do calculations here
+	public int getStarterSpell() {
+		double incinerateDamage = 20 + level * 0.6;
+		int incinerate = ThreadLocalRandom.current().nextInt(15, (int) incinerateDamage);
+		return incinerate;
+	}
+	
 	public String getName() {
 		return name;
 	}

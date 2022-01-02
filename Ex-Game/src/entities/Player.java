@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import actions.Attack;
 
 public class Player extends ParentEntity {
@@ -19,14 +21,19 @@ public class Player extends ParentEntity {
 		this.setExperience(0);
 		this.level = 1;
 	}
-
 	// need a way to implement stat call at any point during current game session
 	// Should be able to display stats of current level
 	@Override
 	public void display() {
 		attackPwr = (int) (str * 1.14);
-		System.out.println("==== Your Stats ====\nHP: " + hp + "\nMP: " + mp + "\nStrength: " + str + "\nDexterity: " + dex
+		System.out.println("== Your Stats ==\nHP: " + hp + "\nMP: " + mp + "\nStrength: " + str + "\nDexterity: " + dex
 				+ "\nAttack: " + attackPwr + "\nDefense: " + defense + "\nLevel: " + level);
+	}
+	
+	public int getStarterSpell() {
+		double incinerateDamage = 20 + level * 0.6;
+		int incinerate = ThreadLocalRandom.current().nextInt(15, (int) incinerateDamage);
+		return incinerate;
 	}
 
 	public int getHp() {

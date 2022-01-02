@@ -27,8 +27,6 @@ public class Game {
 			running = true;
 			GAME: while (running) {
 				if (entity.size() > 1) {
-					int enemyHealth;
-					int playerHealth;
 					String input = battleMenu(entity, scan);
 					if (input.equals("stats")) {
 						entity.get(0).display();
@@ -36,8 +34,14 @@ public class Game {
 					if(input.equals("1")) {
 						attackOption(entity);
 					} 
+					if(input.equals("2")) {
+						
+					}
 					if(input.equals("3")) {
 						entity.get(1).display();
+					}
+					if(input.equals("4")) {
+						incinerateSpell(entity);
 					}
 					else {
 						System.out.println("Wrong input, try again");
@@ -56,6 +60,16 @@ public class Game {
 			}
 		}
 		scan.close();
+	}
+
+	@SuppressWarnings("unused")
+	private static void incinerateSpell(ArrayList<ParentEntity> entity) {
+		int spellDamageDone = entity.get(0).getStarterSpell();
+		int damageDone = entity.get(1).enemyAttack();
+		int enemyHealth = entity.get(1).hp -= spellDamageDone;
+		System.out.println("** You cast Incinerate for " + spellDamageDone + " damage **");
+		int playerHealth = entity.get(0).hp -= damageDone;
+		System.out.println("# - You take " + damageDone + " damage -#");
 	}
 
 	@SuppressWarnings("unused")
