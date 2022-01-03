@@ -86,6 +86,11 @@ public class Player extends ParentEntity {
 		return d;
 	}
 
+	@Override
+	public int defend() {
+		int defend = (int) (this.defense * 2.5);
+		return defend;
+	}
 	public int getExperience() {
 		return experience;
 	}
