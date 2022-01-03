@@ -44,7 +44,8 @@ public class Game {
 					}
 					//MVP for now, implement more later
 					if(input.equals("4")) {
-						incinerateSpell(entity);
+						spellMenu(entity, scan);
+						 
 					}
 					if(input.equals("5")) {
 						//TODO: implement damage reduction to all damage types
@@ -53,14 +54,15 @@ public class Game {
 					if(input.equals("6")) {
 						
 					}
-					else {
-						System.out.println("Wrong input, try again");
-						answer = scan.nextLine();
+//					else {
+//						System.out.println("Wrong input, try again");
+//						answer = scan.nextLine();
 					}
 					if (entity.get(1).hp < 0) {
 						enemyDefeated(entity);
 					}
-				} else {
+//				}
+			else {
 					//Add random element to enemies - later to be based on area
 					//entity.add(new Goblin());
 					Object[] enemies = {new Goblin(), new Skeleton()};
@@ -68,8 +70,31 @@ public class Game {
 					entity.add((ParentEntity) enemy);
 				}
 			}
+		} else {
+			///uhhh..?
+			System.out.println("You did not type 'play', try again or exit program");
+			answer = scan.nextLine();			
 		}
 		scan.close();
+	}
+
+	private static void spellMenu(ArrayList<ParentEntity> entity, Scanner scan) {
+		System.out.println("**************");
+		System.out.println("**Magic Menu**");
+		System.out.println("**************");
+		System.out.println("1. Incinerate (Cost: 6 MP, Damage: 20(base) + your level. Modified by your intelligence stat)");
+		int magicMenuInput = scan.nextInt();
+		switch(magicMenuInput) {
+			case 1: if(entity.get(0).mp >= 6) {
+				entity.get(0).mp -= 6;
+				incinerateSpell(entity);
+				break;
+			}
+			else {
+				System.out.println("You do not have enough mana to cast that!");
+			}
+			default: break;
+		}
 	}
 
 	@SuppressWarnings("unused")
