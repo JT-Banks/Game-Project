@@ -37,11 +37,21 @@ public class Game {
 					if(input.equals("2")) {
 						
 					}
+					//display should work for every enemy
+					//TODO: add description per enemy class
 					if(input.equals("3")) {
 						entity.get(1).display();
 					}
+					//MVP for now, implement more later
 					if(input.equals("4")) {
 						incinerateSpell(entity);
+					}
+					if(input.equals("5")) {
+						//TODO: implement damage reduction to all damage types
+						System.out.println(entity.get(0).defend());
+					}
+					if(input.equals("6")) {
+						
 					}
 					else {
 						System.out.println("Wrong input, try again");
