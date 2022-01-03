@@ -43,5 +43,8 @@ public class Skeleton extends ParentEntity {
 	public void display() {
 		System.out.println("\n" + name + "'s stats \nHealth - " + hp + "\nMana - " + mp + "\nStrength - " + str
 				+ "\nDexterity - " + dex + "\nDefense - " + defense + "\nLevel - " + level);
+		//Specific enemy description 
+		System.out.println("Enemy description: Often found in dark crypts and graveyards. They are the protectors of the dead, unable to have sentient thought."
+						 + "\nAlthough physically strong, they are susceptible to fire");
 	}
 }
