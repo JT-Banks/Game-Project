@@ -39,6 +39,16 @@ public class ParentEntity {
 		return incinerate;
 	}
 	
+	public int defend() {
+		int defend = (int) (defense * 0.25);
+		return defend;
+	}
+	
+	public void display() {
+		System.out.println(name + "'s stats \nHealth - " + hp + "\nMana - " + mp + "\nStrength - " + str
+						      + "\nDexterity - " + dex + "\nDefense - " + defense + "\nLevel - " + level);
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -63,11 +73,6 @@ public class ParentEntity {
 
 	public int getLevel() {
 		return this.level;
-	}
-
-	public void display() {
-		System.out.println(name + "'s stats \nHealth - " + hp + "\nMana - " + mp + "\nStrength - " + str
-						      + "\nDexterity - " + dex + "\nDefense - " + defense + "\nLevel - " + level);
 	}
 
 	public boolean death(boolean death) {
