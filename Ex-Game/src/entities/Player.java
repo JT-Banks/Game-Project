@@ -16,6 +16,7 @@ public class Player extends ParentEntity {
 		this.mp = 20;
 		this.str = 22;
 		this.dex = 17;
+		this.intelligence = 14;
 		this.attackPwr = (int) (str * 1.14);
 		this.defense = 11;
 		this.setExperience(0);
@@ -31,11 +32,11 @@ public class Player extends ParentEntity {
 	}
 	
 	public int getStarterSpell() {
-		double incinerateDamage = 20 + level * 0.6;
-		int incinerate = ThreadLocalRandom.current().nextInt(15, (int) incinerateDamage);
+		int incinerateDamage = (int) (20 + level + (intelligence/2) * 0.6);
+		int incinerate = ThreadLocalRandom.current().nextInt(16, (int) incinerateDamage);
 		return incinerate;
 	}
-
+	@Override
 	public int getHp() {
 		return this.hp;
 	}

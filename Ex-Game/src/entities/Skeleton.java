@@ -14,6 +14,7 @@ public class Skeleton extends ParentEntity {
 		this.mp = 14;
 		this.str = 10;
 		this.dex = 8;
+		this.intelligence = 6;
 		this.attackPwr = (int) (str * 1.14);
 		this.defense = 25;
 		/* How to calculate enemy level based on player level...

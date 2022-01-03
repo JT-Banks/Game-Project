@@ -13,6 +13,7 @@ public class Goblin extends ParentEntity {
 		this.mp = 32;
 		this.str = 14;
 		this.dex = 11;
+		this.intelligence = 11;
 		this.attackPwr = (int) (str * 1.14);
 		this.defense = 29;
 		this.level = 1;

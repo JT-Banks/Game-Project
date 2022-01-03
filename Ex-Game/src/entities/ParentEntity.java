@@ -11,6 +11,7 @@ public class ParentEntity {
 	public int mp;
 	public int str;
 	public int dex;
+	public int intelligence;
 	public int attackPwr;
 	public int defense;
 	public int level;
