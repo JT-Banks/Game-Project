@@ -1,7 +1,5 @@
 package entities;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 import actions.Attack;
 
 public class Player extends ParentEntity {
@@ -103,4 +101,5 @@ public class Player extends ParentEntity {
 	public void setExperience(int experience) {
 		this.experience = experience;
 	}
+	
 }

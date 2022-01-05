@@ -8,7 +8,7 @@ import actions.Attack;
  * Methods are passed on, and overriden to be used accordingly per entity.
  * This class depicts what other entities are allowed to do...
  */
-public class ParentEntity {
+public abstract class ParentEntity {
 
 	public String name;
 	public int hp;
@@ -34,13 +34,6 @@ public class ParentEntity {
 		return enemyDamageDealt;
 	}
 	
-	//Probably need to design something reuseable...and not do calculations here
-	public int getStarterSpell() {
-		double incinerateDamage = 20 + level * 0.6;
-		int incinerate = ThreadLocalRandom.current().nextInt(15, (int) incinerateDamage);
-		return incinerate;
-	}
-	
 	public int defend() {
 		int defend = (int) (defense * 0.25);
 		return defend;
@@ -48,7 +41,7 @@ public class ParentEntity {
 	
 	public void display() {
 		System.out.println(name + "'s stats \nHealth - " + hp + "\nMana - " + mp + "\nStrength - " + str
-						      + "\nDexterity - " + dex + "\nDefense - " + defense + "\nLevel - " + level);
+						        + "\nDexterity - " + dex + "\nDefense - " + defense + "\nLevel - " + level);
 	}
 	
 	public String getName() {
@@ -84,6 +77,9 @@ public class ParentEntity {
 	public int getExp() {
 		int exp = experience + 25;
 		return exp;
+	}
+	public int getStarterSpell() {
+		return 0;
 	}
 
 }

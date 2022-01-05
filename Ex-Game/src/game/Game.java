@@ -18,7 +18,7 @@ public class Game {
 		entity.add(new Player());
 		entity.add(new Skeleton());
 		Scanner scan = new Scanner(System.in);
-		System.out.println("\nCurrent version: Alpha (ver 0.1)");
+		System.out.println("\nCurrent version: Alpha (ver. 0.1)");
 		System.out.println("\nCurrently in testing phase, please type 'play' to run the game");
 		System.out.println("\nIf you wish to see your stats, type 'stats' at any time");
 		String answer = scan.nextLine();
