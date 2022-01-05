@@ -3,7 +3,11 @@ package entities;
 import java.util.concurrent.ThreadLocalRandom;
 
 import actions.Attack;
-
+/*
+ * This class serves as a blueprint for all entities within the game to inherit.
+ * Methods are passed on, and overriden to be used accordingly per entity.
+ * This class depicts what other entities are allowed to do...
+ */
 public class ParentEntity {
 
 	public String name;
@@ -19,20 +23,17 @@ public class ParentEntity {
 	public int experience;
 	
 	public int playerAttack() {
-
-		//Player player = new Player(hp, mp, str, dex, attackPwr, defense, experience, level);
-		Attack attack = new Attack();
-		//double damageDealt = player.damageDone(str * .084);
-		int damageDealt = attack.dealDmg("physical", this.str, this.dex, this.attackPwr);
+		int damageDealt = 0;
 		return damageDealt;
 	}
-
+	//Generic attack method for all enemies, can be used from parent class
 	public int enemyAttack() {
-		
+
 		Attack attack = new Attack();
 		int enemyDamageDealt = attack.enemyDmg("physical", this.str, this.dex, this.attackPwr);
 		return enemyDamageDealt;
 	}
+	
 	//Probably need to design something reuseable...and not do calculations here
 	public int getStarterSpell() {
 		double incinerateDamage = 20 + level * 0.6;

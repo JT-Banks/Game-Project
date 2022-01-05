@@ -22,8 +22,8 @@ public class Player extends ParentEntity {
 		this.setExperience(0);
 		this.level = 1;
 	}
-	// need a way to implement stat call at any point during current game session
-	// Should be able to display stats of current level
+	//need a way to implement stat call at any point during current game session
+	//Should be able to display stats of current level
 	@Override
 	public void display() {
 		attackPwr = (int) (str * 1.14);
@@ -31,11 +31,15 @@ public class Player extends ParentEntity {
 				+ "\nAttack: " + attackPwr + "\nDefense: " + defense + "\nLevel: " + level);
 	}
 	
-	public int getStarterSpell() {
-		int incinerateDamage = (int) (20 + level + (intelligence/2) * 0.6);
-		int incinerate = ThreadLocalRandom.current().nextInt(16, (int) incinerateDamage);
-		return incinerate;
+	@Override
+	public int playerAttack() {
+		Attack attack = new Attack();
+		//double damageDealt = player.damageDone(str * .084);
+		int damageDealt = attack.dealDmg("physical", this.str, this.dex, this.attackPwr);
+		return damageDealt;
 	}
+	
+	
 	@Override
 	public int getHp() {
 		return this.hp;
