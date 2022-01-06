@@ -3,6 +3,8 @@ package game;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+
+import actions.Defend;
 import entities.Goblin;
 import entities.ParentEntity;
 import entities.Player;
@@ -15,6 +17,7 @@ public class Game {
 		//Create array of entities
 		ArrayList<ParentEntity> entity = new ArrayList<ParentEntity>();
 		Random rand = new Random();
+		Defend defend = new Defend();
 		entity.add(new Player());
 		entity.add(new Skeleton());
 		Scanner scan = new Scanner(System.in);
@@ -49,8 +52,10 @@ public class Game {
 					}
 					//TODO: implement damage reduction to all damage types
 					if(input.equals("5")) {
-						
-						System.out.println(entity.get(0).defend());
+						int playerDefense = entity.get(0).getDefense();
+						int damageDone = defend.defend(entity.get(1).enemyAttack(), playerDefense);
+						System.out.println(defend.defend(damageDone, playerDefense));
+						System.out.println("You take: " + damageDone + " damage!");
 					}
 					
 					if(input.equals("6")) {
@@ -63,8 +68,6 @@ public class Game {
 				}
 				
 			else {
-					//Add random element to enemies - later to be based on area
-					//entity.add(new Goblin());
 					Object[] enemies = {new Goblin(), new Skeleton()};
 					Object enemy = enemies[rand.nextInt(enemies.length)];
 					entity.add((ParentEntity) enemy);
@@ -128,12 +131,21 @@ public class Game {
 
 	@SuppressWarnings("unused")
 	private static void attackOption(ArrayList<ParentEntity> entity) {
-		int enemyHealth;
-		int playerHealth;
-		System.out.println("# - You attack for " + entity.get(0).playerAttack() + " damage - #");
-		enemyHealth = entity.get(1).hp -= entity.get(0).playerAttack();
-		playerHealth = entity.get(0).hp -= entity.get(1).enemyAttack();
-		System.out.println("# - You take " + entity.get(1).enemyAttack() + " damage - #");
+		int playerAttackDmg = entity.get(0).playerAttack() - entity.get(1).defense;
+		//System.out.println("This is the damage you would've dealt: " + playerAttackDmg);
+		int enemyAttackDmg = entity.get(1).enemyAttack() - entity.get(0).defense;
+		int enemyHealth = entity.get(1).hp -= playerAttackDmg;
+		int playerHealth = entity.get(0).hp -= enemyAttackDmg;
+		if(playerAttackDmg <= 0) {
+			System.out.println("You deal no damage!");
+		} else {
+		System.out.println("# - You attack for " + playerAttackDmg + " damage - #");
+		}
+		if(enemyAttackDmg <= 0) {
+			System.out.println("You take no damage!");
+		} else {
+		System.out.println("# - You take " + enemyAttackDmg + " damage - #");
+		}
 	}
 
 	private static void enemyDefeated(ArrayList<ParentEntity> entity) {

@@ -22,7 +22,7 @@ public class Goblin extends ParentEntity {
 	public int goblinAttack() {
 
 		Attack attack = new Attack();
-		int damageDealt = attack.dealDmg("physical", this.str, this.dex, this.attackPwr);
+		int damageDealt = attack.dealDmg("physical", this.str, this.attackPwr);
 		return ThreadLocalRandom.current().nextInt(10, damageDealt);  
 	}
 

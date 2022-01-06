@@ -1,11 +1,9 @@
 package entities;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 import actions.Attack;
 /*
  * This class serves as a blueprint for all entities within the game to inherit.
- * Methods are passed on, and overriden to be used accordingly per entity.
+ * Methods are passed on, and overridden to be used accordingly per entity.
  * This class depicts what other entities are allowed to do...
  */
 public abstract class ParentEntity {
@@ -23,25 +21,19 @@ public abstract class ParentEntity {
 	public int experience;
 	
 	public int playerAttack() {
-		int damageDealt = 0;
-		return damageDealt;
+		return 0;
 	}
 	//Generic attack method for all enemies, can be used from parent class
 	public int enemyAttack() {
 
 		Attack attack = new Attack();
-		int enemyDamageDealt = attack.enemyDmg("physical", this.str, this.dex, this.attackPwr);
+		int enemyDamageDealt = attack.enemyDmg("physical", this.str, this.attackPwr);
 		return enemyDamageDealt;
-	}
-	
-	public int defend() {
-		int defend = (int) (defense * 0.25);
-		return defend;
 	}
 	
 	public void display() {
 		System.out.println(name + "'s stats \nHealth - " + hp + "\nMana - " + mp + "\nStrength - " + str
-						        + "\nDexterity - " + dex + "\nDefense - " + defense + "\nLevel - " + level);
+						 + "\nDexterity - " + dex + "\nDefense - " + defense + "\nLevel - " + level);
 	}
 	
 	public String getName() {
