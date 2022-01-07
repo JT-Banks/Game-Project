@@ -9,7 +9,7 @@ public class NPC extends ParentEntity {
 
     public NPC(int hp, int mp, int str, int dex, int attackPwr, int defense, int level, int friendly) {
 
-        this.hp = hp;
+        this.setHp(hp);
         this.mp = mp;
         this.str = str;
         this.dex = dex;

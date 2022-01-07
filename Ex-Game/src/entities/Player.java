@@ -1,6 +1,7 @@
 package entities;
 
 import actions.Attack;
+import actions.Spells;
 
 public class Player extends ParentEntity {
 
@@ -8,13 +9,13 @@ public class Player extends ParentEntity {
 
 	public Player() {
 
-		this.hp = 155;
+		this.setHp(155);
 		this.mp = 20;
 		this.str = 18;
 		this.dex = 16;
-		this.intelligence = 14;
+		this.setIntelligence(14);
 		this.attackPwr = (int) (str * 1.14);
-		this.defense = 11;
+		this.defense = 12;
 		this.setExperience(0);
 		this.level = 1;
 	}
@@ -22,7 +23,7 @@ public class Player extends ParentEntity {
 	//Should be able to display stats of current level
 	@Override
 	public void display() {
-		System.out.println("== Your Stats ==\nHP: " + hp + "\nMP: " + mp + "\nStrength: " + str + "\nDexterity: " + dex
+		System.out.println("== Your Stats ==\nHP: " + getHp() + "\nMP: " + mp + "\nStrength: " + str + "\nDexterity: " + dex
 						 + "\nAttack: " + attackPwr + "\nDefense: " + defense + "\nLevel: " + level);
 	}
 	
@@ -31,6 +32,11 @@ public class Player extends ParentEntity {
 		Attack attack = new Attack();
 		int damageDealt = attack.dealDmg("physical", this.str, this.attackPwr);
 		return damageDealt;
+	}
+	@Override
+	public int getStarterSpell() {
+		Spells spells = new Spells();
+		return spells.getStarterSpell();
 	}
 	
 	@Override
@@ -51,7 +57,7 @@ public class Player extends ParentEntity {
 	}
 
 	@Override
-	public int getAttack() {
+	public int getAttackPwr() {
 		attackPwr = (int) (str * 1.14);
 		return attackPwr;
 	}
@@ -65,17 +71,6 @@ public class Player extends ParentEntity {
 	public int getLevel() {
 		return this.level;
 	}
-
-	public String levelUp() {
-		level += 1;
-		hp = hp + 24;
-		mp = mp + 6;
-		str = str + 3;
-		dex = dex + 2;
-		attackPwr = attackPwr + 4;
-		defense = defense + 3;
-		return "You leveled up!";
-	}
 	
 	public int getExperience() {
 		return experience;
@@ -83,6 +78,17 @@ public class Player extends ParentEntity {
 
 	public void setExperience(int experience) {
 		this.experience = experience;
+	}
+	
+	public String levelUp() {
+		level += 1;
+		setHp(getHp() + 24);
+		mp = mp + 6;
+		str = str + 3;
+		dex = dex + 2;
+		attackPwr = attackPwr + 4;
+		defense = defense + 3;
+		return "You leveled up!";
 	}
 	
 }

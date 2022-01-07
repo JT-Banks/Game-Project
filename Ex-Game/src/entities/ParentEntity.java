@@ -7,7 +7,9 @@ import actions.Attack;
  * This class depicts what other entities are allowed to do...
  */
 public abstract class ParentEntity {
-
+	/*
+	 * Stats may be over-bloated, some aren't used. Dexterity for example.
+	 */
 	public String name;
 	public int hp;
 	public int mp;
@@ -16,9 +18,8 @@ public abstract class ParentEntity {
 	public int intelligence;
 	public int attackPwr;
 	public int defense;
-	public int level;
-	public int friendly;
 	public int experience;
+	public int level;
 	
 	public int playerAttack() {
 		return 0;
@@ -32,7 +33,7 @@ public abstract class ParentEntity {
 	}
 	
 	public void display() {
-		System.out.println(name + "'s stats \nHealth - " + hp + "\nMana - " + mp + "\nStrength - " + str
+		System.out.println(name + "'s stats \nHealth - " + getHp() + "\nMana - " + mp + "\nStrength - " + str
 						 + "\nDexterity - " + dex + "\nDefense - " + defense + "\nLevel - " + level);
 	}
 	
@@ -48,7 +49,7 @@ public abstract class ParentEntity {
 		return this.mp;
 	}
 
-	public int getAttack() {
+	public int getAttackPwr() {
 
 		attackPwr = (int) (str * 1.14);
 		return attackPwr;
@@ -70,7 +71,24 @@ public abstract class ParentEntity {
 		int exp = experience + 25;
 		return exp;
 	}
+	
 	public int getStarterSpell() {
+		return 0;
+	}
+	
+	public int getIntelligence() {
+		return intelligence;
+	}
+	
+	public void setIntelligence(int intelligence) {
+		this.intelligence = intelligence;
+	}
+	
+	public int setHp(int hp) {
+		this.hp = hp;
+		return hp;
+	}
+	public double fireVulnerability() {
 		return 0;
 	}
 

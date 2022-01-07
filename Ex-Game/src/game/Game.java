@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import actions.Defend;
+import actions.Spells;
 import entities.Goblin;
 import entities.ParentEntity;
 import entities.Player;
@@ -18,10 +19,11 @@ public class Game {
 		ArrayList<ParentEntity> entity = new ArrayList<ParentEntity>();
 		Random rand = new Random();
 		Defend defend = new Defend();
+		Spells spells = new Spells();
 		entity.add(new Player());
 		entity.add(new Skeleton());
 		Scanner scan = new Scanner(System.in);
-		System.out.println("\nCurrent version: Alpha (ver. 0.1)");
+		System.out.println("\nCurrent version: Alpha (ver. 0.0.1)");
 		System.out.println("\nCurrently in testing phase, please type 'play' to run the game");
 		System.out.println("\nIf you wish to see your stats, type 'stats' at any time");
 		String answer = scan.nextLine();
@@ -34,9 +36,11 @@ public class Game {
 					if (input.equals("stats")) {
 						entity.get(0).display();
 					}
+					
 					if(input.equals("1")) {
 						attackOption(entity);
 					} 
+					
 					if(input.equals("2")) {
 						
 					}
@@ -62,7 +66,7 @@ public class Game {
 						
 					}
 					
-					if (entity.get(1).hp < 0) {
+					if (entity.get(1).getHp() < 0) {
 						enemyDefeated(entity);
 					}
 				}
@@ -104,10 +108,16 @@ public class Game {
 	private static void incinerateSpell(ArrayList<ParentEntity> entity) {
 		int spellDamageDone = entity.get(0).getStarterSpell();
 		int damageDone = entity.get(1).enemyAttack();
-		int enemyHealth = entity.get(1).hp -= spellDamageDone;
-		System.out.println("** You cast Incinerate for " + spellDamageDone + " damage **");
-		int playerHealth = entity.get(0).hp -= damageDone;
-		System.out.println("# - You take " + damageDone + " damage -#");
+		int enemyHealth;
+		if(entity.get(1).getName().equalsIgnoreCase("Brittle Skeleton")) {
+			System.out.println("~ *Elemental Weakness!* ~");
+			enemyHealth = (int) (entity.get(1).setHp(entity.get(1).getHp() - spellDamageDone) * entity.get(1).fireVulnerability());
+		} else {
+		enemyHealth = entity.get(1).setHp(entity.get(1).getHp() - spellDamageDone);
+		}
+		System.out.println("* -You cast Incinerate for " + spellDamageDone + " damage- *");
+		int playerHealth = entity.get(0).setHp(entity.get(0).getHp() - damageDone);
+		System.out.println("# -You take " + damageDone + " damage- #");
 	}
 
 	@SuppressWarnings("unused")
@@ -134,17 +144,17 @@ public class Game {
 		int playerAttackDmg = entity.get(0).playerAttack() - entity.get(1).defense;
 		//System.out.println("This is the damage you would've dealt: " + playerAttackDmg);
 		int enemyAttackDmg = entity.get(1).enemyAttack() - entity.get(0).defense;
-		int enemyHealth = entity.get(1).hp -= playerAttackDmg;
-		int playerHealth = entity.get(0).hp -= enemyAttackDmg;
+		int enemyHealth = entity.get(1).setHp(entity.get(1).getHp() - playerAttackDmg);
+		int playerHealth = entity.get(0).setHp(entity.get(0).getHp() - enemyAttackDmg);
 		if(playerAttackDmg <= 0) {
 			System.out.println("You deal no damage!");
 		} else {
-		System.out.println("# - You attack for " + playerAttackDmg + " damage - #");
+		System.out.println("# -You attack for " + playerAttackDmg + " damage- #");
 		}
 		if(enemyAttackDmg <= 0) {
 			System.out.println("You take no damage!");
 		} else {
-		System.out.println("# - You take " + enemyAttackDmg + " damage - #");
+		System.out.println("# -You take " + enemyAttackDmg + " damage- #");
 		}
 	}
 
