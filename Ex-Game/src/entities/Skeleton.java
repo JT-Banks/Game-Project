@@ -4,7 +4,6 @@ import java.util.concurrent.ThreadLocalRandom;
 import actions.Attack;
 
 public class Skeleton extends ParentEntity {
-
 	private String name;
 	Player player = new Player();
 	public Skeleton() {
@@ -13,11 +12,11 @@ public class Skeleton extends ParentEntity {
 		 * For example: To adjust how much damage a skeleton does, simply need to adjust strength, nothing else.
 		 */
 		this.name = "Brittle Skeleton";
-		this.hp = ThreadLocalRandom.current().nextInt(114, 146);
+		this.setHp(ThreadLocalRandom.current().nextInt(114, 146));
 		this.mp = 14;
 		this.str = 16;
 		this.dex = 8;
-		this.intelligence = 6;
+		this.setIntelligence(6);
 		this.attackPwr = (int) (str * 1.14);
 		this.defense = 20;
 		/* How to calculate enemy level based on player level...
@@ -27,8 +26,7 @@ public class Skeleton extends ParentEntity {
 		this.level = ThreadLocalRandom.current().nextInt(player.level, player.level + 2);
 	}
 
-	public int skeletonAttack() {
-		
+	public int skeletonAttack() {		
 		Attack attack = new Attack();
 		int damageDealt = attack.enemyDmg("physical", this.str, this.attackPwr);
 		return ThreadLocalRandom.current().nextInt(15, damageDealt);
@@ -45,10 +43,16 @@ public class Skeleton extends ParentEntity {
 
 	@Override
 	public void display() {
-		System.out.println("\n" + name + "'s stats \nHealth - " + hp + "\nMana - " + mp + "\nStrength - " + str
+		System.out.println("\n" + name + "'s stats \nHealth - " + getHp() + "\nMana - " + mp + "\nStrength - " + str
 				+ "\nDexterity - " + dex + "\nDefense - " + defense + "\nLevel - " + level);
 		//Specific enemy description 
 		System.out.println("Enemy description: Often found in dark crypts and graveyards. They are the protectors of the dead, unable to have sentient thought."
 						 + "\nAlthough physically strong, they are susceptible to fire");
+	}
+	
+	@Override
+	public double fireVulnerability() {	
+		double elementalDamageAmplified = 0.25;
+		return elementalDamageAmplified;		
 	}
 }
