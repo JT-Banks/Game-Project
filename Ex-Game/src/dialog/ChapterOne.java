@@ -8,6 +8,6 @@ public class ChapterOne {
 		 *  					- Chapter methods to guide the story along
 		 * 						- Event based dialog depending on progress of the game...
 		 */
-		System.out.println("");
+		System.out.println("This is chapter one...");
 	}
 }

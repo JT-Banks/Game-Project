@@ -1,15 +1,15 @@
 package entities;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.logging.Logger;
 
 import actions.Attack;
 
 public class Goblin extends ParentEntity {
 
-
 	public Goblin() {
 
 		this.name = "Goblin Smasher";
-		this.setHp(ThreadLocalRandom.current().nextInt(99, 118));;
+		this.setHp(ThreadLocalRandom.current().nextInt(99, 118));
 		this.mp = 32;
 		this.str = 14;
 		this.dex = 11;
@@ -26,6 +26,7 @@ public class Goblin extends ParentEntity {
 		return ThreadLocalRandom.current().nextInt(10, damageDealt);  
 	}
 
+	@Override
 	public String getName() {
 		return this.name;
 	}
