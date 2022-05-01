@@ -17,7 +17,7 @@ public class Attack extends ParentEntity {
 	}
 	
 	public int enemyDmg(String element, int str, int attackPwr) {
-		
+
 		attackPwr = (int) (attackPwr * 1.4) + str;
 		int damageDealt = attackPwr;
 		//Damage dealt should be directly from attackPwr - defense
