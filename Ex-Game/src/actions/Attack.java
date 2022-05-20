@@ -2,9 +2,7 @@ package actions;
 import java.util.concurrent.ThreadLocalRandom;
 
 import entities.ParentEntity;
-/*
- * Potentially make into an interface
- */
+
 public class Attack extends ParentEntity {
 
 	public String element;

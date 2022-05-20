@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class BattleMenu {
 
-    @SuppressWarnings("unused")
     public static String battleMenu(ArrayList<ParentEntity> entity, Scanner scan) {
         int enemyHealth = entity.get(1).getHp();
         int playerHealth = entity.get(0).getHp();
@@ -26,7 +25,6 @@ public class BattleMenu {
         return input;
     }
 
-    @SuppressWarnings("unused")
     public static void attackOption(ArrayList<ParentEntity> entity) {
         int playerAttackDmg = entity.get(0).playerAttack() - entity.get(1).defense;
         //System.out.println("This is the damage you would've dealt: " + playerAttackDmg);

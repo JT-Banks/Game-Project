@@ -3,27 +3,27 @@ package game;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-
 import actions.Defend;
 import actions.Spells;
 import entities.Goblin;
 import entities.ParentEntity;
 import entities.Player;
 import entities.Skeleton;
+import items.HealingItems;
 import menus.BattleMenu;
+import menus.ItemMenu;
 import menus.SpellMenu;
 
 public class Game {
 
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		//Create array of entities
 		ArrayList<ParentEntity> entity = new ArrayList<ParentEntity>();
 		Random rand = new Random();
 		Defend defend = new Defend();
-		Spells spells = new Spells();
 		SpellMenu spellMenu = new SpellMenu();
-		//BattleMenu battleMenu = new BattleMenu();
+		ItemMenu itemMenu = new ItemMenu();
+		HealingItems healingItems = new HealingItems();
 		entity.add(new Player());
 		entity.add(new Skeleton());
 		Scanner scan = new Scanner(System.in);
@@ -35,26 +35,31 @@ public class Game {
 		if (answer.equalsIgnoreCase("play")) {
 			running = true;
 			GAME: while (running) {
-				if (entity.size() > 1) {
-					//need input to toggle battle menu
+				if (entity.size() > 1)
+				{
 					String input = BattleMenu.battleMenu(entity, scan);
-					if (input.equals("stats")) {
+					if (input.equalsIgnoreCase("stats"))
+					{
 						entity.get(0).display();
 					}
-					if(input.equals("1")) {
+					if(input.equals("1"))
+					{
 						BattleMenu.attackOption(entity);
 					}
 
-					if(input.equals("2")) {
-						
+					if(input.equals("2"))
+					{
+					itemMenu.initializeItemMenu(entity);
 					}
-					//display should work for every enemy
+
 					//TODO: add description per enemy class
-					if(input.equals("3")) {
+					if(input.equals("3"))
+					{
 						entity.get(1).display();
 					}
-					//MVP for now, implement more later
-					if(input.equals("4")) {
+
+					if(input.equals("4"))
+					{
 						spellMenu.initializeSpellMenu(entity);
 					}
 					//TODO: implement damage reduction to all damage types
@@ -64,12 +69,9 @@ public class Game {
 						System.out.println(defend.defend(damageDone, playerDefense));
 						System.out.println("You take: " + damageDone + " damage!");
 					}
-					
-					if(input.equals("6")) {
-						
-					}
-					
-					if (entity.get(1).getHp() < 0) {
+
+					if (entity.get(1).getHp() < 0)
+					{
 						BattleMenu.enemyDefeated(entity);
 					}
 				}

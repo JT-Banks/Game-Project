@@ -92,4 +92,8 @@ public abstract class ParentEntity {
 		return 0;
 	}
 
+	public void itemHeal() {
+		//use a specific item to heal
+	}
+
 }
